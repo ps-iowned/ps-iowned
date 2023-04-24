@@ -1,3 +1,10 @@
+# Changelog
+
+2023-04-24:
+ - Initial disclosure.
+
+# PSIO is owned
+
 The repository contains code and information about reverse engineering Cybdyn's PSIO. This work is not affiliated with Cybdyn, and is done for educational purposes only. It contains no copyrighted material. Work was done by two people, using clone of PSIO from Aliexpress, and PSIO firmware 2.6.28 from Cybdyn's website. Thanks to github copilot for help writing the document).
 
 PSIO software is three parts:
