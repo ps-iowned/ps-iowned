@@ -1,5 +1,8 @@
 # Changelog
 
+2023-04-25:
+ - Added encrypter.
+
 2023-04-24:
  - Initial disclosure.
 
@@ -232,9 +235,93 @@ Last sector of chinese PSIO clone looks like this:
 
 And zeroes until the end. This serial number is blacklisted in the Menu software. If you know your serial number, you can rewrite the last sector with it with a custom firmware and restore the original firmware after with a custom bootloader.
 
+Encryption of firmware is reverse operation from decryption. This code creates valid encrypted firmwares:
+
+```python
+import sys
+import struct
+
+def flip(b):
+    return bytes([(~x & 0xFF) for x in b])
+
+# Encryption is reverse operation from decryption.
+def encrypt_arm(inname, outname):
+    aes_sbox = bytes.fromhex("""
+        63 7C 77 7B F2 6B 6F C5 30 01 67 2B FE D7 AB 76
+        CA 82 C9 7D FA 59 47 F0 AD D4 A2 AF 9C A4 72 C0
+        B7 FD 93 26 36 3F F7 CC 34 A5 E5 F1 71 D8 31 15
+        04 C7 23 C3 18 96 05 9A 07 12 80 E2 EB 27 B2 75
+        09 83 2C 1A 1B 6E 5A A0 52 3B D6 B3 29 E3 2F 84
+        53 D1 00 ED 20 FC B1 5B 6A CB BE 39 4A 4C 58 CF
+        D0 EF AA FB 43 4D 33 85 45 F9 02 7F 50 3C 9F A8
+        51 A3 40 8F 92 9D 38 F5 BC B6 DA 21 10 FF F3 D2
+        CD 0C 13 EC 5F 97 44 17 C4 A7 7E 3D 64 5D 19 73
+        60 81 4F DC 22 2A 90 88 46 EE B8 14 DE 5E 0B DB
+        E0 32 3A 0A 49 06 24 5C C2 D3 AC 62 91 95 E4 79
+        E7 C8 37 6D 8D D5 4E A9 6C 56 F4 EA 65 7A AE 08
+        BA 78 25 2E 1C A6 B4 C6 E8 DD 74 1F 4B BD 8B 8A
+        70 3E B5 66 48 03 F6 0E 61 35 57 B9 86 C1 1D 9E
+        E1 F8 98 11 69 D9 8E 94 9B 1E 87 E9 CE 55 28 DF
+        8C A1 89 0D BF E6 42 68 41 99 2D 0F B0 54 BB 16
+    """)
+    shifted_sbox = aes_sbox[0x40:0xF0] + aes_sbox[:0x40] + aes_sbox[0xF0:]
+
+    with open(inname, "rb") as inf:
+        data = inf.read()
+    last_block_len = (len(data) + 255) % 256
+    data += b"\x00" * (256 - last_block_len)
+    num_blocks = len(data) // 256
+    assert num_blocks <= 0xF5
+
+    checksums = []
+
+    key = b"HPCS"
+    ciphertext = b""
+    for block in range(num_blocks):
+        plaintext = data[block*0x100:(block+1)*0x100]
+        chunk = []
+        for j in range(64):
+            for i in range(4):
+                chunk.append((shifted_sbox[(plaintext[j*4+i] + key[i]) % 256]) & 0xFF)
+            key = struct.pack("<I", (struct.unpack("<I", key)[0] + 0x1010101) & 0xFFFFFFFF)
+
+        cipher_chk = sum(chunk)
+        plain_chk = sum(plaintext)
+
+        checksums += struct.pack("<H", plain_chk)
+        checksums += flip(struct.pack("<H", plain_chk))
+        checksums += struct.pack("<H", cipher_chk)
+        checksums += flip(struct.pack("<H", cipher_chk))
+
+        ciphertext += bytes(chunk)
+
+    checksums = bytes(checksums)
+
+    with open(outname, "wb") as outf:
+        outf.write(b"SAM3U FW" + b"\x00" * 8)
+        outf.write(struct.pack("<I", num_blocks))
+        outf.write(flip(struct.pack("<I", num_blocks)))
+        outf.write(b"\x00" * 8)
+        outf.write(struct.pack("<I", sum(data)))
+        outf.write(flip(struct.pack("<I", sum(data))))
+        outf.write(struct.pack("<I", sum(ciphertext)))
+        outf.write(flip(struct.pack("<I", sum(ciphertext))))
+        outf.write(b"\x00" * (0x100 - 0x30))
+        outf.write(checksums)
+        outf.write(b"\x00" * (0x10000 - len(checksums) - 0x100))
+        outf.write(ciphertext)
+
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("Usage: %s <input> <output>" % sys.argv[0])
+        sys.exit(1)
+
+    encrypt_arm(sys.argv[1], sys.argv[2])
+```
+
 ## Future work
 
-PSIO is now completely open. Menu isn't very protected. And now firmware is decrypted. We can reverse engineer everything, and create CFW for PSIO. We will work on it next here, so stay tuned.
+PSIO is now completely open. Menu isn't very protected. And now firmware is decrypted. We can reverse engineer everything, and create CFW for PSIO. We will work on it next here, so stay tuned. People asked questions: yes, all is open source.
 
 ## Donations
 
