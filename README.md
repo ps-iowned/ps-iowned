@@ -282,7 +282,7 @@ def encrypt_arm(inname, outname):
         chunk = []
         for j in range(64):
             for i in range(4):
-                chunk.append((shifted_sbox[(plaintext[j*4+i] + key[i]) % 256]) & 0xFF)
+                chunk.append(shifted_sbox[(plaintext[j*4+i] + key[i]) % 256])
             key = struct.pack("<I", (struct.unpack("<I", key)[0] + 0x1010101) & 0xFFFFFFFF)
 
         cipher_chk = sum(chunk)
