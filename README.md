@@ -1,5 +1,8 @@
 # Changelog
 
+2023-04-27
+ - Added links to other repo.
+
 2023-04-25:
  - Added encrypter.
 
@@ -122,9 +125,13 @@ if __name__ == "__main__":
 
 Obfuscation maybe very bad encryption layer. ARM firmware is called `ARM.DAT` in PSIO.DAT. It is obfuscated and encrypted.
 
+[Rewrite project](https://github.com/ps-iowned/loader).
+
 ## FPGA firmware and SPI flash
 
 FPGA firmware is stored in SPI flash of the PSIO, not encrypted. SPI Flash has copy of ARM firmware in it, at offset 0x80000. ARM firmware is not obfuscated, but encrypted. Extract 128kB of SPI flash from offset 0x80000 and get the same ARM firmware as in PSIO.DAT after obfuscation. There is a copy at SPI flash offset 0xa0000.
+
+[Rewrite project](https://github.com/ps-iowned/fpga-firmware).
 
 ## MCU firmware
 
@@ -319,9 +326,15 @@ if __name__ == "__main__":
     encrypt_arm(sys.argv[1], sys.argv[2])
 ```
 
+[Bootloader rewrite project](https://github.com/ps-iowned/mcu-bootloader).
+
+[Firmware rewrite project](https://github.com/ps-iowned/mcu-firmware).
+
 ## Future work
 
 PSIO is now completely open. Menu isn't very protected. And now firmware is decrypted. We can reverse engineer everything, and create CFW for PSIO. We will work on it next here, so stay tuned. People asked questions: yes, all is open source.
+
+[Rewrite projects](https://github.com/ps-iowned?tab=repositories)
 
 ## Donations
 
