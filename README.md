@@ -84,13 +84,14 @@ if __name__ == "__main__":
     if len(sys.argv) != 3:
         print("Usage: %s <input PSIO.DAT> <output directory>" % sys.argv[0])
         sys.exit(1)
-    unpack(argv[1], argv[2])
+    unpack(sys.argv[1], sys.argv[2])
 ```
 
 Files in PSIO.DAT are sometimes obfuscated. Remove obfuscation with this code:
 
 ```python
 import sys
+from collections import defaultdict
 
 def psiodat_deobfuscate(inname, outname):
     with open(inname, "rb") as inf:
