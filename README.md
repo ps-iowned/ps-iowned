@@ -1,5 +1,8 @@
 # Changelog
 
+2023-05-25
+ - Cybdyn upgrades website. Maybe new DRM up? Advice: don't upgrade new firmware until analyze of new DRM done.
+
 2023-04-27
  - Added links to other repo.
 
