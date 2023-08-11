@@ -1,5 +1,8 @@
 # Changelog
 
+2023-08-11
+ - Added news & FAQ.
+
 2023-05-25
  - Cybdyn upgrades website. Maybe new DRM up? Advice: don't upgrade new firmware until analyze of new DRM done.
 
@@ -25,6 +28,44 @@ PSIO software is three parts:
 PSX Menu has been hacked by other people, and is not covered here. Menu hack from other people lets you flash chinese PSIO clones. We go further than that, and reverse engineer the MCU firmware. It is possible to combine both hacks, and run modified firmware on the PSIO.
 
 No official update for 2 years, and no response to emails. PSIO is dead. Time to hack it, and make it better with custom firmware.
+
+## FAQ
+
+Heard questions from community. Answers here. More questions? Create github discussion.
+
+Q: Original PSIO Menu contains Sony code?  
+A: Yes. Original PSIO menu made using original Sony tools & libraries. License impossible to obtain now, so, stolen code.
+
+Q: Original PSIO ARM firmware contains non-Cybdyn code?  
+A: Yes. Original PSIO ARM firmware made with [Keil](https://www.keil.com/demo/eval/arm.htm). License still possible to obtain, but unknown if Cybdyn has license.
+
+Q: Original PSIO Menu contains DRM?  
+A: Yes. Original PSIO Menu has very poor DRM. Original PSIO ARM firmware has no DRM. If custom Menu released, then no more DRM to protect current Original PSIO ARM firmware. Maybe next official update adds ARM firmware DRM, but still no official update.
+
+Q: Custom Menu works on clones with Original PSIO ARM firmware?  
+A: Yes. No DRM in custom Menu, then Original PSIO ARM firmware runs on clones. Can update clones to latest Original PSIO ARM firmware with custom Menu.
+
+Q: Can Custom Menu have DRM?  
+A: Yes, but stupid. DRM in Open Source easy to remove.
+
+Q: Is ps-iowned Menu & ARM firmware coming?  
+A: Yes. Limited time & money so slow work, but both coming. Menu first.
+
+Q: Has ps-iowned received legal letter from Cybdyn?  
+A: No. And useless. No copyright violation with ps-iowned. Only explain how things work, and create new Menu & ARM firmware from scratch.
+
+Q: Does ps-iowned enable PSIO piracy?  
+A: Yes, but side-effect. PSIO clones exist before ps-iowned, and adding DRM in Open Source impossible. This work not for clones, but for genuine Cybdyn customers with no updates for more than 2 years, and still lots of bugs on Original PSIO Menu and ARM firmware.
+
+## News
+
+2023-08-11: [Other custom Menu effort announced](https://github.com/danhans42/lite_menu/). Cybdyn sent legal letter. Community response positive for homebrew Menu, negative for Cybdyn:
+ - https://twitter.com/WobblingP/status/1688927813351645185
+ - https://twitter.com/REBehindtheMask/status/1688968562910629902
+ - https://twitter.com/WobblingP/status/1688946248210857984
+ - https://twitter.com/Voultar/status/1689706789049139201
+ - https://www.youtube.com/watch?v=FsWnPP2hYDk&t=1800
+ - https://www.reddit.com/r/psx/comments/15lkrpx/psio_open_source_replacement_menu/
 
 ## PSX Menu
 
@@ -342,4 +383,4 @@ PSIO is now completely open. Menu isn't very protected. And now firmware is decr
 
 ## Donations
 
-Please help support this project by donating to the following addresses: bc1ql9qlnfzpjdve9takajrvj7fnuy2fwd0zc0vr0m
+Please help support this project by donating to the following addresses: [bc1ql9qlnfzpjdve9takajrvj7fnuy2fwd0zc0vr0m](bitcoin:bc1ql9qlnfzpjdve9takajrvj7fnuy2fwd0zc0vr0m?amount=0.0005)
