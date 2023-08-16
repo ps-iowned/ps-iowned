@@ -59,6 +59,9 @@ A: Yes, but side-effect. PSIO clones exist before ps-iowned, and adding DRM in O
 
 ## News
 
+2023-08-16: [Other custom Menu effort canceled](https://github.com/danhans42/lite_menu/blob/main/images/danhans_sorry.pdf).
+Seen [mentions of PS-IOwned](https://www.retrorgb.com/alternative-psio-lite-menu-to-release-on-aug-13.html) Menu. Yes, work is in progress. Yes, we will release CFW, fully open source, and no copyright material.
+
 2023-08-11: [Other custom Menu effort announced](https://github.com/danhans42/lite_menu/). Cybdyn sent legal letter. Community response positive for homebrew Menu, negative for Cybdyn:
  - https://twitter.com/WobblingP/status/1688927813351645185
  - https://twitter.com/REBehindtheMask/status/1688968562910629902
