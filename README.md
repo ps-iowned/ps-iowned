@@ -1,3 +1,30 @@
+# IMPORTANT: Project shutdown
+TL;DR: working on this project isn't worth the absurd abuse from the community, even if it's only a minority.
+
+The ps-iowned project started because the PSIO, while being a device with great potential for the retro community around the PSX, is a complete disaster on all the other fronts: all of its software stack from the ARM firmware to the MIPS menu is written by people who used to sniff glue in school, the PR around it consists of various [abusive chest-thumping](https://github.com/ps-iowned/.github/blob/main/Ea6gVrGXgAUWK2P.jpg), and the general behavior of Matt, the sole proprietor of Cybdyn, consists of doxxing customers, revoking access to his product (singular) on a whim from genuine customers who are getting restless about his inability to address bugs or commit to any sort of timeline or deadline, and generally speaking, acting like the biggest control freak the planet has ever seen after Putin and Elon Musk.
+
+We thought, it was time to provide the demanding community some relief. A small group of people from all around the world got together, putting our heads together, and starting to reverse engineer the PSIO in its entierety. We decided to stay anonymous, knowing Matt's penchant for doxxing people and abusing them, using only a singular front, "ps-iowned", to show to the outside world. Starting from scratch on an unknown platform is a herculean task, but it was challenging, fun, and seemed to be rewarding. We joined the PSX.Dev community over at https://psx.dev, and started to quietly learn about how the PSX works, using the ample resources provided there, thinking we would be helping the community get the product they deserved by rewriting it all from scratch. Turns out, the community is the same, even if only a small minority.
+
+Using our work, Danhans42 had started working on his own on an alternative MENU for the PSIO. Thanks to his expertise and prior vast knowledge of the console, its hardware and its software, he wrote in days what we've been struggling to accomplish in months. Unfortunately, his one honest mistake was to use his real name to demonstrate his work, and very quickly received [legalese bullshit](https://github.com/danhans42/lite_menu/blob/main/README.md#release-schedule) from Matt, who himself probably violated several international privacy laws to acquire Dan's email address. Even though Matt's pseudo-legal threats are completely unfounded, Dan started feeling uneasy, having a family to care for, and not willing to risk the hassle of an international lawsuit and general abuse from Matt. He contacted us on our public email address, to discuss the steps forward.
+
+We came up with a plan and a narrative. He would publicly fold under the legal pressure from Matt and close his own project. Under the scenes, he gave us all of his source code, joined our little anonymous group, and heavily contributed to our work. We would then spend the next few days painstakingly reskinning his work, making it look like completely different, even rewriting it in C++ to try and mask all traces of his previous work, in order to try and ensure plausible deniability that it was, in fact, his work, and providing Matt no more purchase in pursing him.
+
+Unfortunately, Dan's public folding brought up a new form of abuse: the very community he was trying to help started hurtling abuse towards him. The Russians forum 4pda, and its representative, [orabeidm](https://github.com/orabeidm) [continuously](https://twitter.com/imisDMOR/status/1694616219658092711) attacked him, over and over again, hurtling homophobic and demeaning slurs, on Twitter, on YouTube, and we won't even try to summarize here.
+
+As a last ditch effort to try and cool down the heat he was receiving, he used our email address front, ps-iowned@proton.me, to send an email to [that orabeidm guy](https://github.com/ps-iowned/ps-iowned/discussions/3), revealing the deeds that he, in fact, didn't fold, and just joined our little collective:
+
+![image](https://github.com/ps-iowned/ps-iowned/assets/131186408/13d1a5ba-fa22-43f9-ba90-79e6a8614813)
+
+The response from Дмитрий Орабей? [publicly posting this fact](https://twitter.com/imisDMOR/status/1695394290829070841), compromising the narrative we painstakingly built to protect Dan from Matt, and continuing to hurtle abuse towards Dan:
+
+![image](https://github.com/ps-iowned/ps-iowned/assets/131186408/eb9e6d7f-1b19-439d-a0c6-9cf3ae45e052)
+
+We will not reveal the amount of people who joined the ps-iowned collective, but after the initial two people published the first documentation about the encryption and authoring mechanism of the PSIO, quite a few people reached out, and offered to help with the reverse engineering of it, and the rewriting of all of its aspects, FPGA firmware, ARM firmware, MENU code, everything. But, after Дмитрий decided to publish the private email we sent him, and breaking Dan's anonymity, while continuing to throw abuse at him, we all got together and started discussing. Ultimately, the discussion took a long time, not because the decision was difficult, but because of all of the timezones of everyone involved: we unanimously decided to shut down this project and collective. All of our current reverse engineering work on the PSIO will be permanently deleted, never to be published. This repository will be shut down and archived, and the ps-iowned@proton.me address will be deactivated. Working on a project like this, rewriting from scratch a full firmware software with quality code and rich of features, is fun and challenging, and has the potential to reward a large amount of community members, but the intense abuse from the very few isn't worth it, and our time and efforts will be better spent elsewhere, on other projects, where our members will not be subjected to this.
+
+It was fun while it lasted, but people like them are ruining it for everyone else, and this is why we can't have nice things.
+
+До свидания, and thanks for all the fish.
+
 # Changelog
 
 2023-08-11
